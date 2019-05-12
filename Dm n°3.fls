@@ -393,8 +393,6 @@ INPUT Dm3.py
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvro8t.tfm
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
 INPUT /usr/share/texlive/texmf-dist/tex/latex/psnfss/omsphv.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
-INPUT Dm3.py
 OUTPUT Dm n°3.pdf
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
@@ -409,13 +407,15 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvro8t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvro8r.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8t.tfm
+INPUT Dm3.py
 INPUT Dm3.py
 INPUT Dm3.py
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/adobe/helvetic/phvb8t.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/adobe/helvetic/phvb8r.tfm
 INPUT Dm3.py
 INPUT Dm3.py
 INPUT Dm3.py

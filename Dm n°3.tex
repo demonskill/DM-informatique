@@ -33,6 +33,7 @@
 \\
 b) $2 *[1,2,3]=[1,2,3,1,2,3]$
 \lstinputlisting[language=Python, firstline=1, lastline=20]{Dm3.py}
+\newpage
 \section{Etude de schémas numériques}
 \subsection{Mise en forme du problème }
 {\bf 1.} On peut écrire l'équation (1) sous la forme : \\
@@ -50,7 +51,7 @@ $z(t_{i+1})=z(t_i)+ \int_{t_i}^{t_{i+1}}f(y(t))dt$ car $\forall t \in I, z'(t)=f
 {\bf 1.} On approche les intégrales par la méthode des rectangles à gauche : \\
 $y_{ i+1}=y_i + h z_i = y_0 + h\sum_{k=0}^{i}z_k $ \\
 $z_{i+1}=z_i + h f(y_i)= z_0 + h\sum_{k=0}^{i} f(y_k) $ \\
-\lstinputlisting[language=Python, firstline=22, lastline=37]{Dm3.py}
+\lstinputlisting[language=Python, firstline=22, lastline=34]{Dm3.py}
 La fonction prend en paramètre f, la fonction donné par l'équation différentielle afin de calculer les $(z_i)$, $t_{min}, t_{max}$ et $n$, pour obtenir la liste des $(t_i)$ afin de pouvoir calculer de manière approché les intégrales, ainsi que $z_0$ et $y_0$ afin de pouvoir initialiser la récurrence. \\
 \\
 {\bf 3.} a) On a l'équation : \\
@@ -85,7 +86,7 @@ $z_{i}^2 = - \omega^2 {y_i}^2$ Or $(z_i)^2 \geq 0$ et $\omega^2 {y_i}^2 \geq 0$ 
 \\
 e) Si le schéma numérique satisfaisait la conservation de E on aurait une ellipse ou un point or on a une spirale. Comme les $y_i$ et $z_i$ ont une valeur plus grande que leurs valeurs réelles $y(t_i)$ et $z(t_i)$ l'écart entre la solution et le calcul approché s'agrandit à chaque calcul ce qui donne une spirale qui s'éloigne du centre. \\
 \subsection{Schéma de Verlet}
-\lstinputlisting[language=Python, firstline=38, lastline=53]{Dm3.py}
+\lstinputlisting[language=Python, firstline=36, lastline=49]{Dm3.py}
 {\bf 2.} a) On a : \\
 $E_{i+1}-E_i =\frac{1}{2} ((z_{i+1} -z_i) (z_{i+1} +z_i)) + \frac{\omega^2}{2}((y_{i+1}-y_i)(y_{i+1}+y_i)) $ \\
 $E_{i+1}-E_i =\frac{h}{4}(f_i + f_{i+1})(2z_i +\frac{h}{2}(f_i+f_{i+1})) + \frac{\omega^2}{2}((hz_i + \frac{h^2}{2}f_i)(2y_i+hz_i + \frac{h^2}{2}f_i)$ \\
@@ -101,10 +102,11 @@ $E_{i+1}-E_i=O(h^3)$ car $f(y_i)=-\omega^2y_i$ \\
 b) L'allure du graphique est une ellipse ce qui est en accord avec une conservation de E. \\
  \\
 c) Le schéma de Verlet conserve E
+\newpage
 \section{Problème à N corps}
 \subsection{Position du problème}
 {\bf 1.}$\vec F_j= \sum_{k \neq j} \vec F_{k/j}$
-\lstinputlisting[language=Python, firstline=55, lastline=71]{Dm3.py}
+\lstinputlisting[language=Python, firstline=51, lastline=68]{Dm3.py}
 \subsection{Approche numérique}
 {\bf 1.} {\bf position[i]} donne la position des objets au temps $t_i$, {\bf vitesse[i]} donne la vitesse des objets au temps $t_i$ \\
 \\
@@ -112,9 +114,8 @@ c) Le schéma de Verlet conserve E
 $ m_j (\overrightarrow{OP_j})'' = \vec F_j $ \\
 $(\overrightarrow{OP_j})'' =\frac{ \vec F_j}{m_j} $ \\
 On a donc comme l'équation (1) avec $f=\frac{ \vec F_j}{m_j}$ \\
-\lstinputlisting[language=Python, firstline=73, lastline=98]{Dm3.py}
-\newpage
-\lstinputlisting[language=Python, firstline=99, lastline=124]{Dm3.py}
+\lstinputlisting[language=Python, firstline=69, lastline=91]{Dm3.py}
+\lstinputlisting[language=Python, firstline=92, lastline=116]{Dm3.py}
 {\bf 4.}a) $ln(\tau_N)=Kln(N)$ avec $K=2$ \\
 \\
 b) on a donc une complexité en $O(N^{\bf 2.}$ \\
@@ -122,6 +123,6 @@ b) on a donc une complexité en $O(N^{\bf 2.}$ \\
 {\bf 5.} a) etat suiv a une complexité en $O(N^3)$ \\
 \\
 b) La complexité est plus grande que celle obtenue en III.2.4 \\
-\lstinputlisting[language=Python, firstline=126]{Dm3.py}
+\lstinputlisting[language=Python, firstline=116]{Dm3.py}
 
 \end{document}
