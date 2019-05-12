@@ -30,12 +30,14 @@
 	\setlength{\parindent}{1.5cm}
 \section{Quelques fonctions utilitaires }
 {\bf 1.} a) $[1,2,3] + [4,5,6]=[1,2,3,4,5,6]$ \\
+\\
 b) $2 *[1,2,3]=[1,2,3,1,2,3]$
 \lstinputlisting[language=Python, firstline=1, lastline=20]{Dm3.py}
 \section{Etude de schémas numériques}
 \subsection{Mise en forme du problème }
 {\bf 1.} On peut écrire l'équation (1) sous la forme : \\
 $\forall t \in I, z'(t)=f(y(t))$ car $\forall t \in I, z(t)=y'(t)$ \\
+ \\
 {\bf 2.} On a : \\
 $y(t_{i+1})= y(t_i) + (y(t_{i+1}) - y(t_i))$ \\
 Or : $(y(t_{i+1}) - y(t_i))=\int_{t_i}^{t_{i+1}}y'(t)dt$ \\
@@ -50,6 +52,7 @@ $y_{ i+1}=y_i + h z_i = y_0 + h\sum_{k=0}^{i}z_k $ \\
 $z_{i+1}=z_i + h f(y_i)= z_0 + h\sum_{k=0}^{i} f(y_k) $ \\
 \lstinputlisting[language=Python, firstline=22, lastline=37]{Dm3.py}
 La fonction prend en paramètre f, la fonction donné par l'équation différentielle afin de calculer les $(z_i)$, $t_{min}, t_{max}$ et $n$, pour obtenir la liste des $(t_i)$ afin de pouvoir calculer de manière approché les intégrales, ainsi que $z_0$ et $y_0$ afin de pouvoir initialiser la récurrence. \\
+\\
 {\bf 3.} a) On a l'équation : \\
 $y''+ \omega^2y(t)=0$ \\
 $y''(t) \times y'(t) + y'(t) \times \omega^2 y(t)=0$ \\
@@ -58,24 +61,28 @@ $y''(t) \times y'(t) + y'(t) \times g'(y(t))=0$ \\
 On primitive l'équation avec une constante d'intégration $-E$ : \\
 $\frac{1}{2} (y'(t))^2 + g(y(t))-E=0$ \\
 $\frac{1}{2} (y'(t))^2 + g(y(t))=E$ \\
+ \\
 b) On a en remplaçant $y(t)$ par $y_i$ et $y'(t)$ par $z_i$ : \\
 $E_i=\frac{1}{2} (z_i)^2 + g(y_i)$ \\
 On a donc : \\
 $E_{i+1}-E_i =(\frac{1}{2} (z_{i+1})^2 + g(y_{i+1}))-(\frac{1}{2} (z_i)^2 + g(y_i))$ \\
 $E_{i+1}-E_i =\frac{1}{2} ((z_{i+1})^2-(z_i)^{\bf 2.} + g(y_{i+1})-g(y_i)$ \\
-Comme $g'=-f$, $g(x)=\frac{1}{2} \omega^2 x^2$  on a : \\
-$E_{i+1}-E_i = h^2  \omega^2 (\frac{\omega^2 y_i^2}{2}+\frac{z_i^2}{2})$ \\
-$E_{i+1}-E_i =h^2  \omega^2 (\frac{1}{2} (z_i)^2 + g(y_i))$ \\
-$E_{i+1}-E_i =h^2  \omega^2 E_i$ \\
+Comme $g'=-f$, $g(x)=\frac{1}{2} \omega^2 x^2$ on a : \\
+$E_{i+1}-E_i = h^2 \omega^2 (\frac{\omega^2 y_i^2}{2}+\frac{z_i^2}{2})$ \\
+$E_{i+1}-E_i =h^2 \omega^2 (\frac{1}{2} (z_i)^2 + g(y_i))$ \\
+$E_{i+1}-E_i =h^2 \omega^2 E_i$ \\
+ \\
 c) On aurait : \\
 $\forall i, \frac{1}{2} (z_i)^2 + g(y_i)=E$ \\
-d) On  a si conservation de E : \\
+ \\
+d) On a si conservation de E : \\
 $2E= (z_{i})^2 + \omega^2 {y_i}^2$ donc $E\geq 0$ \\
 Si $E \neq 0$ :\\
 $(\frac{(z_{i})}{\sqrt{2E}})^2 + (\frac{\omega y_i}{\sqrt{2E}})^2=1$ \\
 On a une ellipse \\
 Si $E=0$ : \\
 $z_{i}^2 = - \omega^2 {y_i}^2$ Or $(z_i)^2 \geq 0$ et $\omega^2 {y_i}^2 \geq 0$ donc $z_i=0$ et $y_i=0$ on obtient un point de coordonnées $(0;0)$ \\
+\\
 e) Si le schéma numérique satisfaisait la conservation de E on aurait une ellipse ou un point or on a une spirale. Comme les $y_i$ et $z_i$ ont une valeur plus grande que leurs valeurs réelles $y(t_i)$ et $z(t_i)$ l'écart entre la solution et le calcul approché s'agrandit à chaque calcul ce qui donne une spirale qui s'éloigne du centre. \\
 \subsection{Schéma de Verlet}
 \lstinputlisting[language=Python, firstline=38, lastline=53]{Dm3.py}
@@ -90,7 +97,9 @@ $E_{i+1}-E_i =\frac{1}{4}(hf_i + -\omega^2(hy_i+h^2z_i+ O(h^3))(2z_i +\frac{1}{2
 $E_{i+1}-E_i =\frac{1}{8}(hf_i + -\omega^2(hy_i+h^2z_i+ O(h^3))(hf_i+-\omega^2(hy_i+h^ 2z_i+ O(h^3))) + \frac{\omega^2}{2}(f_ih^2y_i+O(h^3))$ car $f(y_i)=-\omega^2 y_i$ \\
 $E_{i+1}-E_i = \frac{f_i}{8}(h^2f_i+-\omega^2(h^2y_i+O(h^3))) + \frac{\omega^2}{2}(\frac{2f_ih^2y_i}{4}+O(h^3))$ \\
 $E_{i+1}-E_i=O(h^3)$ car $f(y_i)=-\omega^2y_i$ \\
+ \\
 b) L'allure du graphique est une ellipse ce qui est en accord avec une conservation de E. \\
+ \\
 c) Le schéma de Verlet conserve E
 \section{Problème à N corps}
 \subsection{Position du problème}
@@ -98,14 +107,18 @@ c) Le schéma de Verlet conserve E
 \lstinputlisting[language=Python, firstline=55, lastline=71]{Dm3.py}
 \subsection{Approche numérique}
 {\bf 1.} {\bf position[i]} donne la position des objets au temps $t_i$, {\bf vitesse[i]} donne la vitesse des objets au temps $t_i$ \\
-{\bf 2.} On a par le principe fondamentale de la dynamique appliqué à un corps j avec O l'origine du repère : \\
+\\
+{\bf 2.}On a par le principe fondamental de la dynamique appliqué à un corps j avec O, origine du repère : \\
 $ m_j (\overrightarrow{OP_j})'' = \vec F_j $ \\
 $(\overrightarrow{OP_j})'' =\frac{ \vec F_j}{m_j} $ \\
 On a donc comme l'équation (1) avec $f=\frac{ \vec F_j}{m_j}$ \\
 \lstinputlisting[language=Python, firstline=73, lastline=124]{Dm3.py}
 {\bf 4.}a) $ln(\tau_N)=Kln(N)$ avec $K=2$ \\
+\\
 b) on a donc une complexité en $O(N^{\bf 2.}$ \\
+\\
 {\bf 5.} a) etat suiv a une complexité en $O(N^3)$ \\
+\\
 b) La complexité est plus grande que celle obtenue en III.2.4 \\
 \lstinputlisting[language=Python, firstline=126]{Dm3.py}
 
